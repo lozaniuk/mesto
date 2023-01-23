@@ -28,7 +28,10 @@
                     <div class="profile__info">
                         <div class="profile__place">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button"></button>
+                            <button
+                                class="profile__edit-button"
+                                type="button"
+                            ></button>
                         </div>
 
                         <p class="profile__subtitle">Исследователь океана</p>
@@ -123,43 +126,40 @@
                         </li>
                     </ul>
                 </section>
-                <footer class="footer">
-                    <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
-                </footer>
-                <div class="popup">
-                    <div class="popup__container">
-                        <button
-                            class="popup__close-button"
-                            type="button"
-                        ></button>
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <form class="popup__form" name="formElement">
-                            <input
-                                class="popup__input popup__input_type_name"
-                                value=""
-                                type="text"
-                                id="nameInput"
-                                name="name"
-                                placeholder="Имя пользователя"
-                                required
-                            />
-                            <input
-                                class="popup__input popup__input_type_job"
-                                value=""
-                                type="text"
-                                id="jobInput"
-                                name="profession"
-                                placeholder="Название профессии"
-                                required
-                            />
-                            <button class="popup__submit" type="submit">
-                                Сохранить
-                            </button>
-                        </form>
-                    </div>
-                </div>
             </main>
+            <footer class="footer">
+                <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+            </footer>
+            <div class="popup">
+                <div class="popup__container">
+                    <button class="popup__close-button" type="button"></button>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form class="popup__form" name="formElement">
+                        <input
+                            class="popup__input popup__input_type_name"
+                            value=""
+                            type="text"
+                            id="nameInput"
+                            name="name"
+                            placeholder="Имя пользователя"
+                            required
+                        />
+                        <input
+                            class="popup__input popup__input_type_job"
+                            value=""
+                            type="text"
+                            id="jobInput"
+                            name="profession"
+                            placeholder="Название профессии"
+                            required
+                        />
+                        <button class="popup__submit" type="submit">
+                            Сохранить
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <script src="./scripts/scripts.js"></script>
+        <script src="./scripts/idex.js"></script>
     </body>
 </html>
