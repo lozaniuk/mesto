@@ -1,4 +1,4 @@
-.places {
+.element {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 920px) {
-    .places {
+    .element {
         max-width: 600px;
         grid-template-columns: repeat(2, 1fr);
         margin: 36px auto 0;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 650px) {
-    .places {
+    .element {
         grid-template-columns: 1fr;
     }
 }
