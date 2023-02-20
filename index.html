@@ -55,12 +55,12 @@
                 <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
             </footer>
 
-            <div class="popup popup_edit">
+            <div class="popup popup_type_edit">
                 <div class="popup__container">
                     <button class="popup__close-button" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form
-                        class="popup__form popup__form_edit"
+                        class="popup__form popup__form_type_edit"
                         name="formElement"
                     >
                         <input
@@ -88,15 +88,15 @@
                 </div>
             </div>
 
-            <div class="popup popup_add">
+            <div class="popup popup_type_add">
                 <div class="popup__container">
                     <button
-                        class="popup__close-button popup__close-button_add"
+                        class="popup__close-button popup__close-button_type_add"
                         type="button"
                     ></button>
                     <h2 class="popup__title">Новое место</h2>
                     <form
-                        class="popup__form popup__form_add"
+                        class="popup__form popup__form_type_add"
                         name="formAddElement"
                     >
                         <input
@@ -116,7 +116,7 @@
                             required
                         />
                         <button
-                            class="popup__submit popup__submit_add"
+                            class="popup__submit popup__submit_type_add"
                             type="submit"
                         >
                             Создать
@@ -125,12 +125,13 @@
                 </div>
             </div>
 
-            <div class="popup popup_open-image">
-                <div class="popup__container popup__container_image">
+            <div class="popup popup_type_open-image">
+                <div class="popup__container_type_image">
                     <button
-                        class="popup__close-button popup__close-button_image"
+                        class="popup__close-button popup__close-button_type_image"
                         type="button"
                     ></button>
+
                     <div class="popup__place-image">
                         <img class="popup__image" src="#" alt="#" />
                         <p class="popup__subtitle"></p>

@@ -1,13 +1,17 @@
-const popupOpenEdit = document.querySelector(".popup_edit");
-const popupOpenAdd = document.querySelector(".popup_add");
-const popupOpenImage = document.querySelector(".popup_open-image");
-const popupCloseBtn = document.querySelector(".popup__close-button");
-const popupCloseBtnAdd = document.querySelector(".popup__close-button_add");
-const popupCloseBtnImage = document.querySelector(".popup__close-button_image");
+const popupOpenEdit = document.querySelector(".popup_type_edit");
+const popupOpenAdd = document.querySelector(".popup_type_add");
+const popupOpenImage = document.querySelector(".popup_type_open-image");
+const popupButtonsClose = document.querySelector(".popup__close-button");
+const popupCloseBtnAdd = document.querySelector(
+    ".popup__close-button_type_add"
+);
+const popupCloseBtnImage = document.querySelector(
+    ".popup__close-button_type_image"
+);
 const popupOpenBtnEdit = document.querySelector(".profile__edit-button");
 const popupOpenBtnAdd = document.querySelector(".profile__add-button");
-const popupEditForm = document.querySelector(".popup__form_edit");
-const popupAddForm = document.querySelector(".popup__form_add");
+const popupEditForm = document.querySelector(".popup__form_type_edit");
+const popupAddForm = document.querySelector(".popup__form_type_add");
 const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_job");
 const profileTitle = document.querySelector(".profile__title");
@@ -15,7 +19,7 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 const template = document
     .querySelector("#element")
     .content.querySelector(".element__item");
-const cards = document.querySelector(".element");
+const cardsContainer = document.querySelector(".element");
 const titleInput = document.querySelector(".popup__input_type_title");
 const linkInput = document.querySelector(".popup__input_type_link");
 const popupImage = document.querySelector(".popup__image");
@@ -26,7 +30,7 @@ function showInitialCards() {
         return createCard(item);
     });
 
-    cards.append(...elements);
+    cardsContainer.append(...elements);
 }
 
 showInitialCards();
@@ -76,7 +80,7 @@ popupOpenBtnAdd.addEventListener("click", function () {
     openPopup(popupOpenAdd);
 });
 
-popupCloseBtn.addEventListener("click", function () {
+popupButtonsClose.addEventListener("click", function () {
     closePopup(popupOpenEdit);
 });
 
@@ -88,25 +92,25 @@ popupCloseBtnImage.addEventListener("click", function () {
     closePopup(popupOpenImage);
 });
 
-function formEditSubmit(evt) {
+function editSubmitForm(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
     closePopup(popupOpenEdit);
 }
 
-popupEditForm.addEventListener("submit", formEditSubmit);
+popupEditForm.addEventListener("submit", editSubmitForm);
 
-function formAddSubmit(evt) {
+function addSubmitForm(evt) {
     evt.preventDefault();
     const title = titleInput.value;
     const link = linkInput.value;
 
     const card = createCard({ name: title, link: link });
 
-    cards.prepend(card);
+    cardsContainer.prepend(card);
     popupAddForm.reset();
     closePopup(popupOpenAdd);
 }
 
-popupAddForm.addEventListener("submit", formAddSubmit);
+popupAddForm.addEventListener("submit", addSubmitForm);
