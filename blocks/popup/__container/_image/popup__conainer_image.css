@@ -1,4 +1,4 @@
-.popup__container_type_image {
+.popup__container_image {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 505px) {
-    .popup__container_type_image {
+    .popup__container_image {
         height: 299px;
     }
 }
