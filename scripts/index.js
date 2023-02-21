@@ -1,7 +1,9 @@
 const popupOpenEdit = document.querySelector(".popup_type_edit");
 const popupOpenAdd = document.querySelector(".popup_type_add");
 const popupOpenImage = document.querySelector(".popup_type_open-image");
-const popupButtonsClose = document.querySelector(".popup__close-button");
+const popupCloseProfile = document.querySelector(
+    ".popup__close-button_type_edit"
+);
 const popupCloseBtnAdd = document.querySelector(
     ".popup__close-button_type_add"
 );
@@ -80,7 +82,7 @@ popupOpenBtnAdd.addEventListener("click", function () {
     openPopup(popupOpenAdd);
 });
 
-popupButtonsClose.addEventListener("click", function () {
+popupCloseProfile.addEventListener("click", function () {
     closePopup(popupOpenEdit);
 });
 
