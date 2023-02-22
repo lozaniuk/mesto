@@ -26,7 +26,7 @@ const titleInput = document.querySelector(".popup__input_type_title");
 const linkInput = document.querySelector(".popup__input_type_link");
 const popupImage = document.querySelector(".popup__image");
 const popupSubtitle = document.querySelector(".popup__subtitle");
-
+const popupSubmitAdd = document.querySelector(".popup__submit_type_add");
 function showInitialCards() {
     const elements = initialCards.map((item) => {
         return createCard(item);
@@ -80,10 +80,12 @@ popupOpenBtnEdit.addEventListener("click", function () {
 
 popupOpenBtnAdd.addEventListener("click", function () {
     openPopup(popupOpenAdd);
+    disableButton(popupSubmitAdd);
 });
 
 popupCloseProfile.addEventListener("click", function () {
     closePopup(popupOpenEdit);
+    popupEditForm.reset();
 });
 
 popupCloseBtnAdd.addEventListener("click", function () {
@@ -116,3 +118,21 @@ function addSubmitForm(evt) {
 }
 
 popupAddForm.addEventListener("submit", addSubmitForm);
+
+// Закрытие попапа нажатием на Esc
+document.addEventListener("keydown", keyHandlerEscape);
+function keyHandlerEscape(evt) {
+    if (evt.key === "Escape") {
+        const popupOpened = document.querySelector(".popup_opened");
+        closePopup(popupOpened);
+    }
+}
+// Закрытие попапа кликом на оверлей
+const popupOverlays = document.querySelectorAll(".popup");
+popupOverlays.forEach((item) => {
+    item.addEventListener("mousedown", (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closePopup(evt.target);
+        }
+    });
+});
