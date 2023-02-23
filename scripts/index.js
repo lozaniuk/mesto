@@ -21,7 +21,7 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 const template = document
     .querySelector("#element")
     .content.querySelector(".element__item");
-const cardsContainer = document.querySelector(".element");
+const cards = document.querySelector(".element");
 const titleInput = document.querySelector(".popup__input_type_title");
 const linkInput = document.querySelector(".popup__input_type_link");
 const popupImage = document.querySelector(".popup__image");
@@ -32,15 +32,16 @@ function showInitialCards() {
         return createCard(item);
     });
 
-    cardsContainer.append(...elements);
+    cards.append(...elements);
 }
 
 showInitialCards();
 
 function createCard(item) {
     const card = template.cloneNode(true);
-    card.querySelector(".element__image").src = item.link;
-    card.querySelector(".element__image").alt = item.name;
+    const cardImage = card.querySelector(".element__image");
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
     card.querySelector(".element__title").textContent = item.name;
 
     card.querySelector(".element__trash").addEventListener("click", () => {
@@ -54,7 +55,7 @@ function createCard(item) {
         }
     );
 
-    card.querySelector(".element__image").addEventListener("click", () => {
+    cardImage.addEventListener("click", () => {
         openPopup(popupOpenImage);
         popupImage.src = item.link;
         popupImage.alt = item.name;
@@ -66,10 +67,12 @@ function createCard(item) {
 
 function closePopup(popup) {
     popup.classList.remove("popup_opened");
+    document.addEventListener("keydown", keyHandlerEscape);
 }
 
 function openPopup(popup) {
     popup.classList.add("popup_opened");
+    document.addEventListener("keydown", keyHandlerEscape);
 }
 
 popupOpenBtnEdit.addEventListener("click", function () {
@@ -84,8 +87,8 @@ popupOpenBtnAdd.addEventListener("click", function () {
 });
 
 popupCloseProfile.addEventListener("click", function () {
-    closePopup(popupOpenEdit);
     popupEditForm.reset();
+    closePopup(popupOpenEdit);
 });
 
 popupCloseBtnAdd.addEventListener("click", function () {
@@ -112,7 +115,7 @@ function addSubmitForm(evt) {
 
     const card = createCard({ name: title, link: link });
 
-    cardsContainer.prepend(card);
+    cards.prepend(card);
     popupAddForm.reset();
     closePopup(popupOpenAdd);
 }
@@ -120,7 +123,6 @@ function addSubmitForm(evt) {
 popupAddForm.addEventListener("submit", addSubmitForm);
 
 // Закрытие попапа нажатием на Esc
-document.addEventListener("keydown", keyHandlerEscape);
 function keyHandlerEscape(evt) {
     if (evt.key === "Escape") {
         const popupOpened = document.querySelector(".popup_opened");
