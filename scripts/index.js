@@ -84,6 +84,7 @@ popupOpenBtnEdit.addEventListener("click", function () {
 popupOpenBtnAdd.addEventListener("click", function () {
     openPopup(popupOpenAdd);
     disableButton(popupSubmitAdd);
+    popupAddForm.reset();
 });
 
 popupCloseProfile.addEventListener("click", function () {
@@ -103,7 +104,6 @@ function editSubmitForm(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
-    closePopup(popupOpenEdit);
 }
 
 popupEditForm.addEventListener("submit", editSubmitForm);
@@ -127,6 +127,7 @@ function keyHandlerEscape(evt) {
     if (evt.key === "Escape") {
         const popupOpened = document.querySelector(".popup_opened");
         closePopup(popupOpened);
+        popupAddForm.reset();
     }
 }
 // Закрытие попапа кликом на оверлей
@@ -135,6 +136,7 @@ popupOverlays.forEach((item) => {
     item.addEventListener("mousedown", (evt) => {
         if (evt.target === evt.currentTarget) {
             closePopup(evt.target);
+            popupAddForm.reset();
         }
     });
 });
