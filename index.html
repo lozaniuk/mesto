@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Mesto</title>
         <link rel="stylesheet" href="./pages/index.css" />
+        <script type="module" src="./scripts/index.js" defer></script>
+        <script type="module" src="./scripts/Card.js" defer></script>
+        <script type="module" src="./scripts/FormValidator.js" defer></script>
     </head>
 
-    <body>
+    <body class="root">
         <div class="page">
             <header class="header">
                 <img
@@ -55,16 +58,13 @@
                 <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
             </footer>
 
-            <div class="popup popup_type_edit">
+            <div class="popup popup_edit">
                 <div class="popup__container">
-                    <button
-                        class="popup__close-button popup__close-button_type_edit"
-                        type="button"
-                    ></button>
+                    <button class="popup__close-button" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form
-                        class="popup__form popup__form_type_edit"
-                        name="formElement"
+                        class="popup__form popup__form_edit"
+                        name="formEdit"
                         novalidate
                     >
                         <input
@@ -102,7 +102,7 @@
                 </div>
             </div>
 
-            <div class="popup popup_type_add">
+            <div class="popup popup_add">
                 <div class="popup__container">
                     <button
                         class="popup__close-button popup__close-button_type_add"
@@ -110,8 +110,8 @@
                     ></button>
                     <h2 class="popup__title">Новое место</h2>
                     <form
-                        class="popup__form popup__form_type_add"
-                        name="formAddElement"
+                        class="popup__form popup__form_add"
+                        name="formAdd"
                         novalidate
                     >
                         <input
@@ -139,7 +139,7 @@
                             class="popup__error_type_link popup__error"
                         ></span>
                         <button
-                            class="popup__submit popup__submit_type_add"
+                            class="popup__submit popup__submit_add"
                             type="submit"
                         >
                             Создать
@@ -148,10 +148,10 @@
                 </div>
             </div>
 
-            <div class="popup popup_type_open-image">
-                <div class="popup__content">
+            <div class="popup popup_open-image">
+                <div class="popup__container popup__container_image">
                     <button
-                        class="popup__close-button popup__close-button_type_image"
+                        class="popup__close-button popup__close-button_image"
                         type="button"
                     ></button>
 
@@ -162,8 +162,5 @@
                 </div>
             </div>
         </div>
-        <script src="./scripts/constants.js" defer></script>
-        <script src="./scripts/index.js" defer></script>
-        <script src="./scripts/validate.js" defer></script>
     </body>
 </html>
